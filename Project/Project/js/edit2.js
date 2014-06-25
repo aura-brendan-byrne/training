@@ -1,0 +1,3 @@
+function Edit(){ var par = $(this).parent().parent(); //tr var tdName = par.children("td:nth-child(1)"); var tdPhone = par.children("td:nth-child(2)"); var tdEmail = par.children("td:nth-child(3)"); var tdButtons = par.children("td:nth-child(4)"); tdName.html("<input type='text' id='txtName' value='"+tdName.html()+"'/>"); tdPhone.html("<input type='text' id='txtPhone' value='"+tdPhone.html()+"'/>"); tdEmail.html("<input type='text' id='txtEmail' value='"+tdEmail.html()+"'/>"); tdButtons.html("<img src='images/disk.png' class='btnSave'/>"); $(".btnSave").bind("click", Save); $(".btnEdit").bind("click", Edit); $(".btnDelete").bind("click", Delete); };
+
+Read more: http://mrbool.com/how-to-add-edit-and-delete-rows-of-a-html-table-with-jquery/26721#ixzz350ALa8Zr

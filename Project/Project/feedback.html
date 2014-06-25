@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aura Healthcare</title>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap-min.js"></script>
+	<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+
+	<!-- jQuery validation code -->
+	<script>
+
+	// When the browser is ready...
+	$(document).ready(function() {
+
+		//custom validation rule - text only
+		$.validator.addMethod("textOnly", 
+            function(value, element) {
+                return !/[0-9]*/.test(value);
+                           }, 
+
+		// Setup form validation on the #form element
+		$("#auraform").validate({
+
+			// Specify the validation rules
+			rules: {
+				patientname: {
+					required: true,
+					textOnly: true
+				}
+				email: {
+					required: true,
+					email: true
+				},
+				dob: "date",
+				hc: "number",
+				ward: "required",
+				consultant: {
+					required: true,
+		
+				}
+				gp: "required",
+				clenliness: "required",
+				},
+
+
+
+
+			// Specifying the validation error messages
+			messages: {
+				patientname: {
+					required: "Please enter your name",
+					textOnly: "Cannot contain numbers",
+				}
+				email: {
+					required : "Please enter your email"
+					email : "Not an email address"
+				}
+				dob: "Please enter your date of birth",
+				hc: "Please enter your H+C Number",
+				ward: "Please enter your ward",
+				consultant: {
+					requied: "Please enter your consultant's name",
+					textOnly: "Cannot contain numbers",
+				}
+				gp: "Please enter your GP",
+				clenliness: "Please enter your clenliness rating",
+
+			}
+
+			submitHandler: function(form) {
+				form.submit();
+			}
+
+
+
+		});
+
+	});
+
+
+
+	}
+	</script>
+</head>
+
+<body>
+
+	<!-- Fixed Navigation Bar with drop down menu
+	=============================================-->
+
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand">Aura Healthcare</a>
+			</div>
+
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li> 
+					<li class="dropdown">
+						<a href="feedback.html" class="dropdown-toggle" data-toggle="dropdown">Feedback</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Bootstrap Tutorials</a></li>
+							<li><a href="#">HTML Tutorials</a></li>
+							<li><a href="#">CSS Tutorials</a></li>
+							<li><a href="#">JS Tutorials</a></li>
+						</ul>
+					</li> 
+					<li><a href="#">Blank</a></li>  
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer and Modal
+	=====================-->
+	<br/><br/><br/>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<h2>Contact Form</h2> <hr/>
+
+				<form action= "" id="auraform" enctype='application/json' novalidate="novalidate" class="form-horizontal">
+
+					<div class="form-group">
+					<label for="name" id="patientname" class="col-sm-2 control-label">Patient Name</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" placeholder="Enter your name here.." />
+					</div>
+					
+					</div>
+
+					<div class="form-group">
+					<label for="email" id="email" class="col-sm-2 control-label">Email</label>
+					<div class="col-sm-6">
+						<input type="email" class="form-control" placeholder="Enter Email..." />
+					</div>
+					</div>
+
+					<div class="form-group">
+					<label for="message" id="dob" class="col-sm-2 control-label">Date of Birth</label>
+					<div class="col-sm-6">
+						<input type="date" class="form-control" placeholder="DD/MM/YY" />
+					</div>		
+					</div>
+
+					<div class="form-group">
+					<label for="message" id="hc" class="col-sm-2 control-label">H+C Number</label>
+					<div class="col-sm-6">
+						<input type="number" name="hcnumber" class="form-control" placeholder="Enter your HC Number here" />
+					</div>		
+					</div>
+
+					<div class="form-group">
+					<label for="message" id="ward" class="col-sm-2 control-label">Ward</label>
+					<div class="col-sm-6">
+						<input type="text" name="Ward" maxlength="50" class="form-control" placeholder="Enter your Ward here" />
+					</div>		
+					</div>
+
+					<div class="form-group">
+					<label for="message" id="consultant" class="col-sm-2 control-label">Consultant</label>
+					<div class="col-sm-6">
+						<input type="text" id="consultant" name="Consultant" class="form-control" placeholder="Enter your consultant's name here" />
+					</div>		
+					</div>
+
+					<div class="form-group">
+					<label for="message" id="gp" class="col-sm-2 control-label">GP+Practice</label>
+					<div class="col-sm-6">
+						<input type="text" maxlength="50" class="form-control" />
+					</div>		
+					</div>
+					
+					<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-6"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vehicula lobortis eros, vel vehicula est pretium non. Aliquam aliquet luctus diam, at fringilla est pulvinar porta. Vivamus auctor hendrerit iaculis. Nullam in pretium dolor. Ut porttitor, dolor sed mollis sodales, orci nibh fermentum tellus, in volutpat urna augue sit amet justo. Aenean id tortor vitae odio posuere condimentum. Integer quis gravida odio. Donec pellentesque nisl ut dui ullamcorper, sed imperdiet tortor tristique. Nullam nec leo vitae tellus tempor facilisis et sit amet lorem. Curabitur ultricies quam consectetur nisl lobortis, at euismod nunc blandit.</p></div></div>
+
+					<div class="form-group">
+					<label for="gender" class="col-sm-2 control-label">How would you rate the care you recieved?</label>
+					<div class="col-sm-6">
+						<label class="radio-inline">
+							<input type="radio" name="care" value="option1" /> Very Poor
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="care" value="option2" /> Poor
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="care" value="option3" /> Average
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="care" value="option4" /> Good
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="care" value="option5" /> Excellent
+						</label>
+					</div>		
+					</div>	
+
+					<div class="form-group">
+					<label for="message" class="col-sm-2 control-label">How would you rate the clenliness of the Hospital?</label>
+					<div class="col-sm-6">
+						<input type="number" id="clenliness" min="0" max="10" step="1" value="0" name="hcnumber" class="form-control" />
+					</div>		
+					</div>
+
+					<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-6"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vehicula lobortis eros, vel vehicula est pretium non. Aliquam aliquet luctus diam, at fringilla est pulvinar porta. Vivamus auctor hendrerit iaculis. Nullam in pretium dolor. Ut porttitor, dolor sed mollis sodales, orci nibh fermentum tellus, in volutpat urna augue sit amet justo. Aenean id tortor vitae odio posuere condimentum. Integer quis gravida odio. Donec pellentesque nisl ut dui ullamcorper, sed imperdiet tortor tristique. Nullam nec leo vitae tellus tempor facilisis et sit amet lorem. Curabitur ultricies quam consectetur nisl lobortis, at euismod nunc blandit.</p></div></div>
+
+					<div class="form-group">
+					<label for="gender" class="col-sm-2 control-label">Which of the following services did you think were exceptional?</label>
+					<div class="col-sm-6">
+						<label class="radio-inline">
+							<input type="radio" name="services" value="option1" /> Nursing
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="services" value="option2" /> Porters
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="services" value="option3" /> Consultants
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="services" value="option4" /> Doctors
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="services" value="option5" /> Cleaning
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="services" value="option6" /> Surgeons
+						</label>
+					</div>		
+					</div>	
+
+					<div class="form-group">
+					<label for="message" class="col-sm-2 control-label">Do you have any comments about the care you recieved during this visit?</label>
+					<div class="col-sm-6">
+						<textarea class="form-control" name="comments" rows="3"></textarea>
+					</div>		
+					</div>
+
+					<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-6">
+						<button type="submit" name="submit" class="btn btn-primary">Submit</button>
+						<input type="submit" name="submit" value="Submit" />
+						<button type="reset" class="btn btn-default">Clear</button>
+					</div>		
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+	
+</body>
+</html>

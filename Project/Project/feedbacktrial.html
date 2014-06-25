@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<!--
+  Created using jsbin.com
+  Source can be edited via http://jsbin.com/tocazuve/4/edit
+-->
+<head>
+
+	<title>test</title>
+	<script src="js/jquery-1.11.0.min.js"></script>
+    
+    <script src="js/jquery.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+	 <script src="js/ajax2.js"></script> 
+	<!-- <script src="js/testing.js"></script> -->
+	<!-- <script src="js/delete.js"></script> -->
+	<!-- <script srec="js/working!.js"></script> -->
+	<!-- jQuery validation code -->
+	<script src="js/errors.js"></script>
+
+<style id="jsbin-css">
+
+</style>
+</head>
+
+<body>
+
+	<!-- Fixed Navigation Bar with drop down menu
+	=============================================-->
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand">test</a>
+			</div>
+
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li> 
+					<li class="dropdown">
+						<a title="This is an example tooltip!" href="feedback.html" class="dropdown-toggle" data-toggle="dropdown" rel="tooltip">Feedback</a>
+						<ul class="dropdown-menu">
+							<li><a title="This is an example tooltip!" href="#" rel="tooltip">Bootstrap Tutorials</a></li>
+							<li><a href="#">HTML Tutorials</a></li>
+							<li><a href="#">CSS Tutorials</a></li>
+							<li><a href="#">JS Tutorials</a></li>
+						</ul>
+					</li> 
+					<li><a href="#">Blank</a></li>  
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- Content Pane (Tabbed)
+	=====================-->
+	<br/><br/><br/>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<h2>Feedback Form</h2> <hr/>
+
+				<form class="form-horizontal" id="form">
+
+				 <div class="tabbable"> <!-- Only required for left/right tabs -->
+      			<ul class="nav nav-tabs">
+        		<li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
+        		<li><a href="#tab2" data-toggle="tab">Section 2</a></li>
+      			</ul>
+
+			 <div class="tab-content">
+        	   <div class="tab-pane active" id="tab1">
+					<div class="form-group">
+					<label for="name" id="patientname" class="col-sm-2 control-label">Patient Name</label>
+					<div class="col-sm-6">
+						<input type="text"name="patientname" class="form-control" placeholder="Enter your name here.." />
+					</div>
+					
+					</div>
+
+					<div class="form-group">
+					<label for="email" id="email" class="col-sm-2 control-label">Email</label>
+					<div class="col-sm-6">
+						<input type="email" name="email" class="form-control" placeholder="Enter Email..." />
+					</div>
+					</div>
+
+					<div class="form-group">
+					<label for="message" value = dateofbirth id="dob" class="col-sm-2 control-label">Date of Birth</label>
+					<div class="col-sm-6">
+						<input type="date" name="dob" class="form-control" placeholder="DD/MM/YY" />
+					</div>		
+					</div>
+
+					<div class="form-group">
+					<label for="message" id="hc" class="col-sm-2 control-label">H+C Number</label>
+					<div class="col-sm-6">
+						<input type="number" name="hc" class="form-control" placeholder="Enter your HC Number here" />
+					</div>		
+					</div>
+
+					<div class="form-group">
+					<label for="message" id="ward" class="col-sm-2 control-label">Ward</label>
+					<div class="col-sm-6">
+						<input type="text" name="ward" maxlength="50" class="form-control" placeholder="Enter your Ward here" />
+					</div>		
+					</div>
+
+					<div class="form-group">
+					<label for="message" id="consultant" class="col-sm-2 control-label">Consultant</label>
+					<div class="col-sm-6">
+						<input type="text" name="consultant" class="form-control" placeholder="Enter your consultant's name here" />
+					</div>		
+					</div>
+
+					<div class="form-group">
+					<label for="message" id="gp" class="col-sm-2 control-label">GP+Practice</label>
+					<div class="col-sm-6">
+						<input type="text" name="gp" maxlength="50" class="form-control" />
+					</div>		
+					</div>
+				
+					<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-6"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vehicula lobortis eros, vel vehicula est pretium non. Aliquam aliquet luctus diam, at fringilla est pulvinar porta. Vivamus auctor hendrerit iaculis. Nullam in pretium dolor. Ut porttitor, dolor sed mollis sodales, orci nibh fermentum tellus, in volutpat urna augue sit amet justo. Aenean id tortor vitae odio posuere condimentum. Integer quis gravida odio. Donec pellentesque nisl ut dui ullamcorper, sed imperdiet tortor tristique. Nullam nec leo vitae tellus tempor facilisis et sit amet lorem. Curabitur ultricies quam consectetur nisl lobortis, at euismod nunc blandit.</p></div></div>
+				</div>
+
+				<div class="tab-pane" id="tab2">
+					<div class="form-group">
+					<label for="gender" class="col-sm-2 control-label">How would you rate the care you recieved?</label>
+					<div class="col-sm-6">
+						<label class="radio-inline">
+							<input type="radio" name="care" value="option1" class="required"/> Very Poor
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="care" value="option2" /> Poor
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="care" value="option3" /> Average
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="care" value="option4" /> Good
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="care" value="option5" /> Excellent
+						</label>
+					</div>		
+					</div>	
+
+					<div class="form-group">
+					<label for="message" id="clenliness" class="col-sm-2 control-label">How would you rate the clenliness of the Hospital?</label>
+					<div class="col-sm-6">
+						<input type="number" name="clenliness" min="0" max="10" step="1" value="0" name="hcnumber" class="form-control" />
+					</div>		
+					</div>
+
+					<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-6">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vehicula lobortis eros, vel vehicula est pretium non. Aliquam aliquet luctus diam, at fringilla est pulvinar porta. Vivamus auctor hendrerit iaculis. Nullam in pretium dolor. Ut porttitor, dolor sed mollis sodales, orci nibh fermentum tellus, in volutpat urna augue sit amet justo. Aenean id tortor vitae odio posuere condimentum. Integer quis gravida odio. Donec pellentesque nisl ut dui ullamcorper, sed imperdiet tortor tristique. Nullam nec leo vitae tellus tempor facilisis et sit amet lorem. Curabitur ultricies quam consectetur nisl lobortis, at euismod nunc blandit.</p></div></div>
+
+					<div class="form-group">
+					<label for="gender" class="col-sm-2 control-label">Which of the following services did you think were exceptional?</label>
+					<div class="col-sm-6">
+						<label class="radio-inline">
+							<input type="radio" name="services" value="option1" class="required" /> Nursing
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="services" value="option2" /> Porters
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="services" value="option3" /> Consultants
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="services" value="option4" /> Doctors
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="services" value="option5" /> Cleaning
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="services" value="option6" /> Surgeons
+						</label>
+					</div>		
+					</div>	
+
+					<div class="form-group">
+					<label for="message" class="col-sm-2 control-label">Do you have any comments about the care you recieved during this visit?</label>
+					<div class="col-sm-6">
+						<textarea class="form-control" name="comments" rows="3"></textarea>
+					</div>		
+					</div>
+
+					<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-6">
+						<!-- <input id="submit" type="submit" value="Submit" class="button" /> -->
+						<button type="submit" id="clickme" class="btn btn-primary">Submit</button>
+						<button type="reset" class="btn btn-default">Clear</button>
+					</div>		
+					</div>
+				</div>
+				</div>
+				</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

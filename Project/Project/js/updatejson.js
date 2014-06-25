@@ -1,81 +1,3 @@
-var TableData = JSON.stringify(storeTblValues());
-console.log(TableData);
-
-function storeTblValues()
-{
-
-  var TableHeaders = $.map($('#records_table thead th'), function(elm) { return $(elm).text(); });
-    
-  return $.map($('#records_table tbody tr'), function(tr){
-      var cells = $(tr).children();
-      var row = {};
-      $.each(TableHeaders, function(i) { row[this] = cells.eq(i).text(); });
-      return row;
-  });
-}
-
-
-$.ajax({
-	        type: "PUT",
-	        url: "https://api.mongolab.com/api/1/databases/feedbackforms/collections/brendanforms?apiKey=qAFrws2KkmfZCyl6U2aZbn8N7EU2v0xu",
-	        data: TableData,
-	        dataType: 'json',
-	        contentType: "application/json",
-	    });
-
-
-
-
-
-// Too Busy in console log section, 16:02 24/06/2014
-
-/*var TableData = JSON.stringify(storeTblValues());
-console.log(TableData)
-
-function storeTblValues()
-{
-
-var TableData = [];
-    
-$('#records_table tr').each(function(){
-    var cells = $(this).children();
-    TableData.push({
-         "Patient Name" : cells.eq(0).text(), // Patient Name
-         "Email" : cells.eq(1).text(), // Email
-         "Date of Birth" : cells.eq(2).text(), // Date of Birth
-         "HC Number" : cells.eq(3).text(), // HC Number
-         "Ward" : cells.eq(4).text(), // Ward
-         "Consultant" : cells.eq(5).text(), // Consultant
-         "GP" : cells.eq(6).text(), // GP
-         "Care" : cells.eq(7).text(), // Care
-         "Clenliness" : cells.eq(8).text(), // Clenliness
-         "Services" : cells.eq(9).text(), // Services
-         "Comments" : cells.eq(10).text(), // Comments
-    });
-}); 
-TableData.shift();  // first row is the table header - so remove
-console.log(TableData);
-return TableData;
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*$(document).ready(function() {
 	$.ajax( { url: 'https://api.mongolab.com/api/1/databases/feedbackforms/collections/brendanforms?apiKey=qAFrws2KkmfZCyl6U2aZbn8N7EU2v0xu&q={"_id":SET TO TR OBJECT ID}',
 		  data: JSON.stringify( { "$set" : { "patientname" : td1 },
@@ -160,18 +82,33 @@ console.log(TableData);
 return TableData;
 }
 */
-
-/*var TableData;
+var TableData;
 TableData = storeTblValues();
-TableData = JSON.stringify(TableData);
+TableData = $.toJSON(TableData);
 
 function storeTblValues()
 {
 
-var TableData = [];
+var TableData = new Array([]);
     
 $('#records_table tr').each(function(row, tr){
-    TableData.push({
+	/*
+	TableData = TableData 
+        + $(tr).find('td:eq(0)').text() + ' '  // Patient Name
+        + $(tr).find('td:eq(1)').text() + ' '  // Email
+        + $(tr).find('td:eq(2)').text() + ' '  // Date of Birth
+        + $(tr).find('td:eq(3)').text() + ' '  // HC Number
+        + $(tr).find('td:eq(4)').text() + ' '  // Ward
+        + $(tr).find('td:eq(5)').text() + ' '  // Consultant
+        + $(tr).find('td:eq(6)').text() + ' '  // GP
+        + $(tr).find('td:eq(7)').text() + ' '  // Care
+        + $(tr).find('td:eq(8)').text() + ' '  // Clenliness
+        + $(tr).find('td:eq(9)').text() + ' '  // Services
+        + $(tr).find('td:eq(10)').text() + ' '  // Comments
+        + '\n';
+*/
+
+    TableData[row]={
          "Patient Name" : $(tr).find('td:eq(0)').text(), // Patient Name
          "Email" : $(tr).find('td:eq(1)').text(), // Email
          "Date of Birth" : $(tr).find('td:eq(2)').text(), // Date of Birth
@@ -183,14 +120,12 @@ $('#records_table tr').each(function(row, tr){
          "Clenliness" : $(tr).find('td:eq(8)').text(), // Clenliness
          "Services" : $(tr).find('td:eq(9)').text(), // Services
          "Comments" : $(tr).find('td:eq(10)').text(), // Comments
-    });
+    }
 }); 
 TableData.shift();  // first row is the table header - so remove
 console.log(TableData);
 return TableData;
 }
-*/
-
 /*$(document).ready(function() {
 
     $('select.#records_table').change(function () {
