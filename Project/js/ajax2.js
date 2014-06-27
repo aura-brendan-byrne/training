@@ -162,6 +162,8 @@ $(document).ready(function(){
 	        }
 	    });
 
+      /*var form = document.getElementById("myform");
+            form.reset();*/
 	    event.preventDefault();
 	}); 
 

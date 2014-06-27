@@ -15,6 +15,27 @@ function storeTblValues()
 }
 
 
+/* &&&
+
+		Trying out the $Set function to try and update my mongoDB entries. No joy as of yet.
+
+	&&&
+*/
+
+/*
+$("clickme")submit(function() {
+	BasicDBObject newDocument = new BasicDBObject();
+	newDocument.append("$set", new BasicDBObject().append(patientname, "Updated Name"));
+ 
+	BasicDBObject searchQuery = new BasicDBObject().append(Ward, "East");
+ 
+	collection.update(searchQuery, newDocument);
+
+    event.preventDefault();
+	}); 
+*/
+
+
 $.ajax({
 	        type: "PUT",
 	        url: "https://api.mongolab.com/api/1/databases/feedbackforms/collections/brendanforms?apiKey=qAFrws2KkmfZCyl6U2aZbn8N7EU2v0xu",
@@ -23,7 +44,22 @@ $.ajax({
 	        contentType: "application/json",
 	    });
 
+/* 
+	&&&
 
+	Attempt at trying to match the entries in the table to object id within mongoDB 
+
+	&&&
+*/
+
+	
+/*
+for (var i=0; i<TableData.length; i++) {
+  if (TableData[i].$oid === value._id.$oid) {
+    replace;
+    break;
+  }
+}*/
 
 
 
