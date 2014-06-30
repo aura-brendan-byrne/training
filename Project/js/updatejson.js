@@ -15,7 +15,8 @@ function storeTblValues()
 }
 
 
-/* &&&
+/* 
+	&&&
 
 		Trying out the $Set function to try and update my mongoDB entries. No joy as of yet.
 
@@ -43,6 +44,38 @@ $.ajax({
 	        dataType: 'json',
 	        contentType: "application/json",
 	    });
+
+
+/*
+	&&&
+
+	Trying to bing an on click function that will check of object id match then, if the match is confirmed dynamically populate the fields with the correct mongodb information fields.
+
+	&&&
+ */
+
+/*
+$("#clickme").bind("change", function(e){
+  $.getJSON("https://api.mongolab.com/api/1/databases/feedbackforms/collections/brendanforms?apiKey=qAFrws2KkmfZCyl6U2aZbn8N7EU2v0xu" + $("#clickme").val(),
+        function(data){
+          $.each(data, function(i,item){
+            if ( "#Objectid" == value._id.$oid) {
+              $("#patientname").val(value.patientname),
+              $("#email").val(value.email),
+              $("#dob").val(value.dob),
+              $("#hc").val(value.hc),
+              $("#ward").val(value.ward),
+              $("#gp").val(value.gp),
+              $("#consultant").val(value.consultant),
+              $("#care").val(value.care),
+              $("#clenliness").val(value.clenliness),
+              $("#services").val(value.services),
+              $("#comments").val(value.comments),
+            }
+          });
+        });
+});
+*/
 
 /* 
 	&&&
